@@ -1,0 +1,5 @@
+pyautogui
+pillow
+pyttsx3
+keyboard
+openai
