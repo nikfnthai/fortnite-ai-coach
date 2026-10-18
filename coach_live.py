@@ -26,7 +26,7 @@ def cattura_schermo():
     return base64.b64encode(buffered.getvalue()).decode('utf-8')
 
 def analizza_giocata():
-    parla("Analizzo lo schermo...")
+    parla("Analizzo...")
     base64_image = cattura_schermo()
 
     try:
@@ -35,7 +35,7 @@ def analizza_giocata():
             messages=[
                 {
                     "role": "system",
-                    "content": "Sei un coach esperto di Fortnite. Analizza lo screenshot e dai UN SOLO consiglio tattico ultra-conciso (massimo 15 parole) su posizionamento, salute, scudo o armi."
+                    "content": "Sei un coach pro-player di Fortnite. Analizza lo screenshot e dai UN SOLO consiglio tattico immediato (massimo 10-12 parole) su posizionamento, salute o fight."
                 },
                 {
                     "role": "user",
@@ -50,7 +50,7 @@ def analizza_giocata():
                     ],
                 },
             ],
-            max_tokens=100,
+            max_tokens=80,
         )
 
         consiglio = response.choices[0].message.content
@@ -60,8 +60,8 @@ def analizza_giocata():
         print(f"Errore: {e}")
         parla("Errore durante l'analisi.")
 
-print("🎮 Coach Fortnite AI Attivo!")
-print("Premi F9 in partita per ricevere il consiglio vocale.")
+print("🎮 Coach Fortnite AI Attivo per Torneo!")
+print("Premi il tasto CAPS LOCK in partita per ricevere il consiglio vocale all'istante!")
 
-keyboard.add_hotkey('F9', analizza_giocata)
+keyboard.add_hotkey('caps lock', analizza_giocata)
 keyboard.wait()
