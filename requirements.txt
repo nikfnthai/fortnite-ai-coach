@@ -3,3 +3,4 @@ pillow
 pyttsx3
 keyboard
 openai
+pygetwindow
