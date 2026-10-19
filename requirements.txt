@@ -4,3 +4,4 @@ pyttsx3
 keyboard
 openai
 pygetwindow
+customtkinter
